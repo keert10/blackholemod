@@ -1,7 +1,7 @@
 FROM python:3.9-slim
 
 # Metadata labels
-LABEL org.opencontainers.image.source="https://github.com/westsurname/scripts"
+LABEL org.opencontainers.image.source="https://github.com/keert10/blackholemod"
 LABEL org.opencontainers.image.description="Docker image for the blackhole service"
 
 ARG SERVICE_NAME=blackhole
