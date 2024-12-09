@@ -8,6 +8,7 @@ class BlackholeHandler:
         self.path_name = getPath(is_radarr, create=True)
 
     async def watch(self):
+        await on_created(self.is_radarr)
         async for changes in awatch(self.path_name):
             for change in changes:
                 if change[0] in [1,2] and (change[1].lower().endswith((".torrent", ".magnet"))):
@@ -15,6 +16,7 @@ class BlackholeHandler:
 
 async def main():
     print("Watching blackhole")
+    
     radarr_handler = BlackholeHandler(is_radarr=True)
     sonarr_handler = BlackholeHandler(is_radarr=False)
 
